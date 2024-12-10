@@ -1,5 +1,7 @@
 TOP_DIR := $(shell pwd)
 
+ARCH := $(shell uname -m)
+
 PKG_DIR := $(TOP_DIR)/archives
 BLD_DIR := $(TOP_DIR)/build
 PAT_DIR := $(TOP_DIR)/patches
@@ -59,7 +61,9 @@ $(GIG_PKG).install: $(GIG_PKG)
 ## Linux Sampler
 $(LSB_BLD_DIR):
 	tar -xvpf $(LSB_PKG_ARC) -C $(BLD_DIR)
+ifeq ($(ARCH),aarch64)
 	cd $(LSB_BLD_DIR) && patch -p0 < $(PAT_DIR)/linuxsampler-aarch64.patch
+endif
 
 
 $(LSB_BLD_DIR)/Makefile:
@@ -125,3 +129,7 @@ clean:
 
 prepare:
 	apt install build-essential libsndfile-dev libgtk2.0-dev libgtkmm-2.4-dev
+
+
+arch:
+	@echo $(ARCH)
