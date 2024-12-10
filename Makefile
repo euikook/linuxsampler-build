@@ -2,6 +2,7 @@ TOP_DIR := $(shell pwd)
 
 PKG_DIR := $(TOP_DIR)/archives
 BLD_DIR := $(TOP_DIR)/build
+PAT_DIR := $(TOP_DIR)/patches
 
 
 LSB_PKG := linuxsampler
@@ -10,8 +11,6 @@ LSB_PKG_ARC = $(PKG_DIR)/$(LSB_PKG)-$(LSB_PKG_VER).tar.bz2
 LSB_BLD_DIR = $(BLD_DIR)/$(LSB_PKG)-$(LSB_PKG_VER)
 
 
-prepare:
-	apt install build-essential libsndfile-dev libgtk2.0-dev libgtkmm-2.4-dev
 
 
 GIG_PKG := libgig
@@ -32,6 +31,8 @@ GIGE_PKG_ARC := $(PKG_DIR)/$(GIGE_PKG)-$(GIGE_PKG_VER).tar.bz2
 GIGE_BLD_DIR := $(BLD_DIR)/$(GIGE_PKG)-$(GIGE_PKG_VER)
 
 
+all: $(LSB_PKG)
+
 
 ## libgig
 $(GIG_BLD_DIR):
@@ -44,24 +45,27 @@ $(GIG_BLD_DIR)/Makefile:
 $(GIG_PKG).config: $(GIG_BLD_DIR)/Makefile
 
 
-$(GIG_PKG).build: $(GIG_BLD_DIR)
+$(GIG_PKG).build: $(GIG_BLD_DIR) $(GIG_PKG).config
 	cd $(GIG_BLD_DIR) && make
 
-$(GIG_PKG).install:
-	cd $(GIG_BLD_DIR) && make install
+
+$(GIG_PKG): $(GIG_PKG).build
 
 
-$(GIG_PKG): $(GIG_PKG).config $(GIG_PKG).build
+$(GIG_PKG).install: $(GIG_PKG)
+	cd $(GIG_BLD_DIR) && sudo make install
 
 
 ## Linux Sampler
 $(LSB_BLD_DIR):
 	tar -xvpf $(LSB_PKG_ARC) -C $(BLD_DIR)
+	cd $(LSB_BLD_DIR) && patch -p0 < $(PAT_DIR)/linuxsampler-aarch64.patch
 
-$(LSB_BLD_DIR)/Makefile: $(LSB_BLD_DIR)
+
+$(LSB_BLD_DIR)/Makefile:
 	cd $(LSB_BLD_DIR) && ./configure
 
-$(LSB_PKG).config: $(LSB_BLD_DIR)/Makefile
+$(LSB_PKG).config: $(LSB_BLD_DIR) $(LSB_BLD_DIR)/Makefile
 
 
 $(LSB_PKG).build: $(LSB_BLD_DIR)
@@ -71,7 +75,7 @@ $(LSB_PKG).install:
 	cd $(LSB_BLD_DIR) && make install
 
 
-$(LSB_PKG): $(LSB_PKG).config $(LSB_PKG).build
+$(LSB_PKG): $(GIG_PKG).install $(LSB_PKG).config $(LSB_PKG).build
 
 ## liblscp
 $(LSCP_BLD_DIR):
@@ -114,3 +118,10 @@ $(GIGE_PKG).install:
 
 $(GIGE_PKG): $(GIGE_PKG).build
 
+
+clean: 
+	rm -rf $(BLD_DIR)/*
+
+
+prepare:
+	apt install build-essential libsndfile-dev libgtk2.0-dev libgtkmm-2.4-dev
