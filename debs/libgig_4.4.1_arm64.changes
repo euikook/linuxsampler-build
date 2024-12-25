@@ -18,17 +18,17 @@ Changes:
  .
    * New release.
 Checksums-Sha1:
- 81e31a4158cea4ba1f4bab8d56e1707eb18030ee 1774152 gigtools_4.4.1_arm64.deb
+ ef991f8eba69e9ec9a7f9668ce60e92eff67dd0a 1774152 gigtools_4.4.1_arm64.deb
  f4bf0dc7dc45fcbf45cb7486f7ad5b73eae84f3e 3351440 libgig-dev_4.4.1_arm64.deb
- 0c8e5da2e322f07baad8f70fe58d4e9f6fcee380 2155572 libgig11_4.4.1_arm64.deb
- ca6b1ce8a45757cda478434cd119517bc0c14d6c 7298 libgig_4.4.1_arm64.buildinfo
+ 03f8e5a3ceda917c16ca2564fb30fd1fb8b7fa78 2155572 libgig11_4.4.1_arm64.deb
+ 903e4cedfdf2e51e84abc30938a34f5a38bfdf7f 7298 libgig_4.4.1_arm64.buildinfo
 Checksums-Sha256:
- cad1ac00ca83031c7dabe122ffdfdb5361ab7a998a5b06604bddd2577d99cda9 1774152 gigtools_4.4.1_arm64.deb
+ 80755ab31eb5470b0360d88329b9018227c94920434ea1dafb6d6528d4c798bf 1774152 gigtools_4.4.1_arm64.deb
  966f5570e1d2cac9a91db8c91b72cdf1b62ee187a3d65a88d1a86dfa1ec680a9 3351440 libgig-dev_4.4.1_arm64.deb
- ec2220e10c4d3103a62b950837559b066209f7ef7e3e1f3801c389771fa7432b 2155572 libgig11_4.4.1_arm64.deb
- dde1f6d426b5d14be6994658c514102d38ce94e8fd712de88bcb86e69782be5a 7298 libgig_4.4.1_arm64.buildinfo
+ a5ffb10db96da528119d574ef156993532babbd5529b1ef38f89586c0f996c17 2155572 libgig11_4.4.1_arm64.deb
+ f3d822d583531c87a31c6da4ea21f6d3af4876796ffbfb13b88e8d3325a69909 7298 libgig_4.4.1_arm64.buildinfo
 Files:
- f83291a9fc45e2b447ed60e93b86b88c 1774152 utils optional gigtools_4.4.1_arm64.deb
+ b61d6fceb2fb8ffd4fcbd95190a93f46 1774152 utils optional gigtools_4.4.1_arm64.deb
  63a4aa37c200e2ed049ec44b260409e8 3351440 libdevel optional libgig-dev_4.4.1_arm64.deb
- 9abe51ba2c66828c3f3466c3ce0ac293 2155572 libs optional libgig11_4.4.1_arm64.deb
- 4ec786854e4153066cbc9ce34dd837ee 7298 devel optional libgig_4.4.1_arm64.buildinfo
+ d430c8ea418c5dfa4a08e3cb3e0e9744 2155572 libs optional libgig11_4.4.1_arm64.deb
+ 1c171bde72b2928a5e25bb1faf2be94c 7298 devel optional libgig_4.4.1_arm64.buildinfo
