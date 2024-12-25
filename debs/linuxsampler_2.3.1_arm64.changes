@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Tue, 26 Mar 2024 12:57:02 +0100
+Source: linuxsampler
+Binary: liblinuxsampler liblinuxsampler-dev linuxsampler
+Built-For-Profiles: noudeb
+Architecture: arm64
+Version: 2.3.1
+Distribution: unstable
+Urgency: low
+Maintainer: LinuxSampler Developers <linuxsampler-devel@lists.sourceforge.net>
+Changed-By: Christian Schoenebeck <cuse@users.sourceforge.net>
+Description:
+ liblinuxsampler - realtime audio sampler (base library)
+ liblinuxsampler-dev - realtime audio sampler (development files)
+ linuxsampler - realtime audio sampler
+Changes:
+ linuxsampler (2.3.1) unstable; urgency=low
+ .
+   * New release.
+Checksums-Sha1:
+ d3c5236e573251a3fc60a24b66f60384eb681c1f 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
+ 6a1407b26244e316bc8d4a7f968f95a1e50c4375 13520500 liblinuxsampler_2.3.1_arm64.deb
+ 70b54d6e8f140b20dd94e7378971a6d197878cd9 7093 linuxsampler_2.3.1_arm64.buildinfo
+ 0dc957290ad1c48e17f203a5cde0264611320f60 521538 linuxsampler_2.3.1_arm64.deb
+Checksums-Sha256:
+ 74eff645c71fae69524ad62f385461d7e53c0374bd585814cd8ed63590c3edca 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
+ f8696a094da53fb05b90774844a31dd4e6536ea2902b373318b9459260a708c0 13520500 liblinuxsampler_2.3.1_arm64.deb
+ 4ec5a07284f2283103c68565d3740074080e7d9be16b43745659d7e1f6268d26 7093 linuxsampler_2.3.1_arm64.buildinfo
+ 0d090a18c5be40630f963ca6350050495ae3e8269f73b51ec77d2b931f17a6ed 521538 linuxsampler_2.3.1_arm64.deb
+Files:
+ 824be118ebea74356d0dd86c25c9ee89 19285746 libdevel optional liblinuxsampler-dev_2.3.1_arm64.deb
+ aa8eff43494e86ac352288f4feee195f 13520500 libs optional liblinuxsampler_2.3.1_arm64.deb
+ d3bc997eb018c84af93f20eeebaecbe9 7093 sound optional linuxsampler_2.3.1_arm64.buildinfo
+ c0725553cb63cf3a3620da2dc5187e70 521538 sound optional linuxsampler_2.3.1_arm64.deb
