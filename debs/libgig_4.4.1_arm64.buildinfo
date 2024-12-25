@@ -4,25 +4,22 @@ Binary: gigtools libgig-dev libgig11
 Architecture: arm64
 Version: 4.4.1
 Checksums-Md5:
- 2adee924f6658d148e63dfe298280fb0 1773788 gigtools_4.4.1_arm64.deb
+ f83291a9fc45e2b447ed60e93b86b88c 1774152 gigtools_4.4.1_arm64.deb
  63a4aa37c200e2ed049ec44b260409e8 3351440 libgig-dev_4.4.1_arm64.deb
- 4deac68398d09f810cc84ca03f6fa18d 2155572 libgig11_4.4.1_arm64.deb
+ 9abe51ba2c66828c3f3466c3ce0ac293 2155572 libgig11_4.4.1_arm64.deb
 Checksums-Sha1:
- 76583fd682243dfb02feb8a7413bbaa51df73d7b 1773788 gigtools_4.4.1_arm64.deb
+ 81e31a4158cea4ba1f4bab8d56e1707eb18030ee 1774152 gigtools_4.4.1_arm64.deb
  f4bf0dc7dc45fcbf45cb7486f7ad5b73eae84f3e 3351440 libgig-dev_4.4.1_arm64.deb
- 6685712e2a05dc817f1aa25b340a2dad587ae3ed 2155572 libgig11_4.4.1_arm64.deb
+ 0c8e5da2e322f07baad8f70fe58d4e9f6fcee380 2155572 libgig11_4.4.1_arm64.deb
 Checksums-Sha256:
- 59aeded35a40685c128ba158e99f3632bd77d1319a446a653a3151506eb5cc76 1773788 gigtools_4.4.1_arm64.deb
+ cad1ac00ca83031c7dabe122ffdfdb5361ab7a998a5b06604bddd2577d99cda9 1774152 gigtools_4.4.1_arm64.deb
  966f5570e1d2cac9a91db8c91b72cdf1b62ee187a3d65a88d1a86dfa1ec680a9 3351440 libgig-dev_4.4.1_arm64.deb
- 0b0c05a6c0c903a82ae66883af8d55d0ae3a9c36b0c6133c6d080d90cff8316c 2155572 libgig11_4.4.1_arm64.deb
+ ec2220e10c4d3103a62b950837559b066209f7ef7e3e1f3801c389771fa7432b 2155572 libgig11_4.4.1_arm64.deb
 Build-Origin: Ubuntu
 Build-Architecture: arm64
-Build-Date: Thu, 19 Dec 2024 13:38:33 +0000
+Build-Date: Wed, 25 Dec 2024 16:00:13 +0000
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
- usr-local-has-includes
- usr-local-has-libraries
- usr-local-has-programs
 Installed-Build-Depends:
  autoconf (= 2.71-3),
  automake (= 1:1.16.5-1.3ubuntu1),

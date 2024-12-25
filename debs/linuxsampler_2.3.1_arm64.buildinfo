@@ -5,19 +5,19 @@ Architecture: arm64
 Version: 2.3.1
 Checksums-Md5:
  824be118ebea74356d0dd86c25c9ee89 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
- aa8eff43494e86ac352288f4feee195f 13520500 liblinuxsampler_2.3.1_arm64.deb
- c0725553cb63cf3a3620da2dc5187e70 521538 linuxsampler_2.3.1_arm64.deb
+ 63aa9f88f0ec0bdfb81e62f15e358879 13520500 liblinuxsampler_2.3.1_arm64.deb
+ ff4d3c91ed7cd477cfae8f7a935005d4 521536 linuxsampler_2.3.1_arm64.deb
 Checksums-Sha1:
  d3c5236e573251a3fc60a24b66f60384eb681c1f 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
- 6a1407b26244e316bc8d4a7f968f95a1e50c4375 13520500 liblinuxsampler_2.3.1_arm64.deb
- 0dc957290ad1c48e17f203a5cde0264611320f60 521538 linuxsampler_2.3.1_arm64.deb
+ 859f05d939244374965a342cb79a526e6c33c665 13520500 liblinuxsampler_2.3.1_arm64.deb
+ 6f10bef6d9ac5432285ffdc895ec6d284c479103 521536 linuxsampler_2.3.1_arm64.deb
 Checksums-Sha256:
  74eff645c71fae69524ad62f385461d7e53c0374bd585814cd8ed63590c3edca 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
- f8696a094da53fb05b90774844a31dd4e6536ea2902b373318b9459260a708c0 13520500 liblinuxsampler_2.3.1_arm64.deb
- 0d090a18c5be40630f963ca6350050495ae3e8269f73b51ec77d2b931f17a6ed 521538 linuxsampler_2.3.1_arm64.deb
+ 67be138463558b6a80e4e6e39eeea6cb54bcbfa40280885fd77073b166b0e93e 13520500 liblinuxsampler_2.3.1_arm64.deb
+ b131bad7a919efa9468e10bf44cb6bfa914101cd2df7b2481114cd83e4863a2a 521536 linuxsampler_2.3.1_arm64.deb
 Build-Origin: Ubuntu
 Build-Architecture: arm64
-Build-Date: Thu, 19 Dec 2024 14:03:00 +0000
+Build-Date: Wed, 25 Dec 2024 16:12:03 +0000
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
 Installed-Build-Depends:
