@@ -5,6 +5,7 @@ ARCH := $(shell uname -m)
 PKG_DIR := $(TOP_DIR)/archives
 BLD_DIR := $(TOP_DIR)/build
 PAT_DIR := $(TOP_DIR)/patches
+DEB_DIR := $(TOP_DIR)/debs
 
 
 LSB_PKG := linuxsampler
@@ -50,6 +51,8 @@ $(GIG_PKG).config: $(GIG_BLD_DIR)/Makefile
 $(GIG_PKG).build: $(GIG_BLD_DIR) $(GIG_PKG).config
 	cd $(GIG_BLD_DIR) && make
 
+$(GIG_PKG).deb:
+	cd $(GIG_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign
 
 $(GIG_PKG): $(GIG_PKG).build
 
@@ -74,6 +77,9 @@ $(LSB_PKG).config: $(LSB_BLD_DIR) $(LSB_BLD_DIR)/Makefile
 
 $(LSB_PKG).build: $(LSB_BLD_DIR)
 	cd $(LSB_BLD_DIR) && make
+
+$(LSB_PKG).deb:
+	cd $(LSB_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign
 
 $(LSB_PKG).install:
 	cd $(LSB_BLD_DIR) && make install
@@ -116,6 +122,7 @@ $(GIGE_PKG).config: $(GIGE_BLD_DIR)/Makefile
 $(GIGE_PKG).build: $(GIGE_BLD_DIR) $(GIGE_PKG).config 
 	cd $(GIGE_BLD_DIR) && make
 
+
 $(GIGE_PKG).install:
 	cd $(GIGE_BLD_DIR) && make install
 
@@ -133,3 +140,14 @@ prepare:
 
 arch:
 	@echo $(ARCH)
+
+debs: $(GIG_PKG).deb $(LSB_PKG).deb
+	mv $(BLD_DIR)/*.deb $(DEB_DIR)
+	mv $(BLD_DIR)/*.changes $(DEB_DIR)
+	mv $(BLD_DIR)/*.buildinfo $(DEB_DIR)
+
+docker-debs:
+	docker run -v $(TOP_DIR):/build ls-build make debs
+
+docker-build:
+	docker build -t ls-build .

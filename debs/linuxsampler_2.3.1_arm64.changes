@@ -2,7 +2,6 @@ Format: 1.8
 Date: Tue, 26 Mar 2024 12:57:02 +0100
 Source: linuxsampler
 Binary: liblinuxsampler liblinuxsampler-dev linuxsampler
-Built-For-Profiles: noudeb
 Architecture: arm64
 Version: 2.3.1
 Distribution: unstable
@@ -18,17 +17,17 @@ Changes:
  .
    * New release.
 Checksums-Sha1:
- d3c5236e573251a3fc60a24b66f60384eb681c1f 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
- b7c083a02fef3591775e7de8de22d6d1b77e5e28 13520500 liblinuxsampler_2.3.1_arm64.deb
- 53039a7cdd81d37f5f5adbfd04dddf8204df5877 7093 linuxsampler_2.3.1_arm64.buildinfo
- c7703a71f08c43391f7ade417004675757252ebc 521536 linuxsampler_2.3.1_arm64.deb
+ 94b58f1d5bbc765e89a083889dda4f4ddd0f88a9 17667212 liblinuxsampler-dev_2.3.1_arm64.deb
+ 278d68b1724de2b2a0c58467789965fd5b0bb4ec 12335016 liblinuxsampler_2.3.1_arm64.deb
+ 7760cefc0657f715581d204ddcdd8ced1288c76f 6165 linuxsampler_2.3.1_arm64.buildinfo
+ 19381480dc25a53a5fe95fb21ad787d5fb6c2df3 493156 linuxsampler_2.3.1_arm64.deb
 Checksums-Sha256:
- 74eff645c71fae69524ad62f385461d7e53c0374bd585814cd8ed63590c3edca 19285746 liblinuxsampler-dev_2.3.1_arm64.deb
- bfe50b8b9f81eeb0705aaf22a5ac39215a11e552fec4ab41dcdaacc1b6087dad 13520500 liblinuxsampler_2.3.1_arm64.deb
- fa43305b78f58f13d0575b93f395672229a5aab6d2bbe987a9623de2705a0ab4 7093 linuxsampler_2.3.1_arm64.buildinfo
- 8d422db95770e993023327d0eca61195f02d39b6a19ab2108caecd44fcbdd337 521536 linuxsampler_2.3.1_arm64.deb
+ 377558288ae8ae561a139fdfceb2755a2a73eb8be2f1bf46b955c9bcbd151bc6 17667212 liblinuxsampler-dev_2.3.1_arm64.deb
+ 45d5fabaf5f913b8827d7dfca6968689397e3cbe7525a1a00e2c34340cf69986 12335016 liblinuxsampler_2.3.1_arm64.deb
+ 717bdf568e331c29105eac2db47de08c83aeaf9240cdd46d180569e401340e7e 6165 linuxsampler_2.3.1_arm64.buildinfo
+ ecedce616e4dc409df21eed9ffb5a56d8a57cb183bc2d2c392b39ab825d107ae 493156 linuxsampler_2.3.1_arm64.deb
 Files:
- 824be118ebea74356d0dd86c25c9ee89 19285746 libdevel optional liblinuxsampler-dev_2.3.1_arm64.deb
- 1f336c32eb7a21a3b7998bb234af79a3 13520500 libs optional liblinuxsampler_2.3.1_arm64.deb
- ef81e04bddd70ebf565d73612127fc72 7093 sound optional linuxsampler_2.3.1_arm64.buildinfo
- 7f40fb585fc20b5d4872e5b78c2ea9a5 521536 sound optional linuxsampler_2.3.1_arm64.deb
+ d0358ba5b2669a11ee46b56e4a2ec3d1 17667212 libdevel optional liblinuxsampler-dev_2.3.1_arm64.deb
+ ea662f4376fe782a28f0b8613f776fd9 12335016 libs optional liblinuxsampler_2.3.1_arm64.deb
+ 45bc7c764865b0d1aaac24ff5838a988 6165 sound optional linuxsampler_2.3.1_arm64.buildinfo
+ d2c1c337f156d3a829d4f895faa0b3cc 493156 sound optional linuxsampler_2.3.1_arm64.deb
