@@ -1,6 +1,9 @@
 TOP_DIR := $(shell pwd)
 
-ARCH := $(shell uname -m)
+ARCH := aarch64
+
+
+DOCKER_PLATFORM=linux/$(ARCH)
 
 PKG_DIR := $(TOP_DIR)/archives
 BLD_DIR := $(TOP_DIR)/build
@@ -12,8 +15,6 @@ LSB_PKG := linuxsampler
 LSB_PKG_VER := 2.3.1
 LSB_PKG_ARC = $(PKG_DIR)/$(LSB_PKG)-$(LSB_PKG_VER).tar.bz2
 LSB_BLD_DIR = $(BLD_DIR)/$(LSB_PKG)-$(LSB_PKG_VER)
-
-
 
 
 GIG_PKG := libgig
@@ -34,31 +35,40 @@ GIGE_PKG_ARC := $(PKG_DIR)/$(GIGE_PKG)-$(GIGE_PKG_VER).tar.bz2
 GIGE_BLD_DIR := $(BLD_DIR)/$(GIGE_PKG)-$(GIGE_PKG_VER)
 
 
-all: $(LSB_PKG)
+QJAC_PKG := qjackctl
+QJAC_PKG_VER := 1.0.3
+QJAC_PKG_ARC := $(PKG_DIR)/$(QJAC_PKG)-$(QJAC_PKG_VER).tar.gz
+QJAC_BLD_DIR := $(BLD_DIR)/$(QJAC_PKG)-$(QJAC_PKG_VER)
+QJAC_PKG_DEB := $(PKG_DIR)/$(QJAC_PKG)_$(QJAC_PKG_VER)-1.debian.tar.xz
 
+
+QSAM_PKG := qsampler
+QSAM_PKG_VER := 1.0.0
+QSAM_PKG_ARC := $(PKG_DIR)/$(QSAM_PKG)-$(QSAM_PKG_VER).tar.gz
+QSAM_BLD_DIR := $(BLD_DIR)/$(QSAM_PKG)-$(QSAM_PKG_VER)
+QSAM_PKG_DEB := $(PKG_DIR)/$(QSAM_PKG)_$(QSAM_PKG_VER)-1.debian.tar.xz
+
+
+all: $(GIG_PKG) $(LSB_PKG) $(QJAC_PKG) $(QSAM_PKG)
+	mv $(BLD_DIR)/*.deb $(DEB_DIR)
+	mv $(BLD_DIR)/*.changes $(DEB_DIR)
+	mv $(BLD_DIR)/*.buildinfo $(DEB_DIR)
+
+
+
+prepare:
+	apt install build-essential libsndfile-dev libgtk2.0-dev libgtkmm-2.4-dev \
+		cmake libqt6svg6-dev qt6-base-dev qt6-tools-dev qt6-tools-dev-tools libx11-dev \
+		liblscp-dev
 
 ## libgig
 $(GIG_BLD_DIR):
 	tar -xvjpf $(GIG_PKG_ARC) -C $(BLD_DIR)
 
-$(GIG_BLD_DIR)/Makefile:
-	echo  $@
-	cd $(GIG_BLD_DIR) && ./configure
-
-$(GIG_PKG).config: $(GIG_BLD_DIR)/Makefile
-
-
-$(GIG_PKG).build: $(GIG_BLD_DIR) $(GIG_PKG).config
-	cd $(GIG_BLD_DIR) && make
-
-$(GIG_PKG).deb:
+$(GIG_PKG).deb: $(GIG_BLD_DIR)
 	cd $(GIG_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign
 
-$(GIG_PKG): $(GIG_PKG).build
-
-
-$(GIG_PKG).install: $(GIG_PKG)
-	cd $(GIG_BLD_DIR) && sudo make install
+$(GIG_PKG): $(GIG_PKG).deb
 
 
 ## Linux Sampler
@@ -69,85 +79,65 @@ ifeq ($(ARCH),aarch64)
 endif
 
 
-$(LSB_BLD_DIR)/Makefile:
-	cd $(LSB_BLD_DIR) && ./configure
-
-$(LSB_PKG).config: $(LSB_BLD_DIR) $(LSB_BLD_DIR)/Makefile
-
-
-$(LSB_PKG).build: $(LSB_BLD_DIR)
-	cd $(LSB_BLD_DIR) && make
-
-$(LSB_PKG).deb:
+$(LSB_PKG).deb: $(LSB_BLD_DIR)
 	cd $(LSB_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign
 
-$(LSB_PKG).install:
-	cd $(LSB_BLD_DIR) && make install
+$(LSB_PKG):$(LSB_PKG).deb
 
-
-$(LSB_PKG): $(GIG_PKG).install $(LSB_PKG).config $(LSB_PKG).build
 
 ## liblscp
 $(LSCP_BLD_DIR):
 	tar -xvzpf $(LSCP_PKG_ARC) -C $(BLD_DIR)
-	mkdir $(LSCP_BLD_DIR)
 
-$(LSCP_BLD_DIR)/Makefile: $(LSCP_BLD_DIR)
-	cd $(LSCP_BLD_DIR) && cmake ..
+$(LSCP_PKG).deb: $(LSCP_BLD_DR)
+	cd $(LSCP_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
 
-$(LSCP_PKG).config: $(LSCP_BLD_DIR)/Makefile
-
-
-$(LSCP_PKG).build: $(LSCP_BLD_DIR)
-	cd $(LSCP_BLD_DIR) && make
-
-$(LSCP_PKG).install:
-	cd $(LSCP_BLD_DIR) && make install
-
-
-$(LSCP_PKG): $(LSCP_PKG).config $(LSCP_PKG).build
+$(LSCP_PKG): $(LSCP_PKG).deb
 
 
 ## gigiedit
 $(GIGE_BLD_DIR):
 	tar -xvjpf $(GIGE_PKG_ARC) -C $(BLD_DIR)
 
-$(GIGE_BLD_DIR)/Makefile:
-	echo  $@
-	cd $(GIGE_BLD_DIR) && ./configure
+$(GIGE_PKG).deb: $(GIGE_BLD_DIR)
+	cd $(GIGE_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
 
-$(GIGE_PKG).config: $(GIGE_BLD_DIR)/Makefile
-
-
-$(GIGE_PKG).build: $(GIGE_BLD_DIR) $(GIGE_PKG).config 
-	cd $(GIGE_BLD_DIR) && make
+$(GIGE_PKG): $(GIGE_PKG).deb
 
 
-$(GIGE_PKG).install:
-	cd $(GIGE_BLD_DIR) && make install
+## qjackctl
+$(QJAC_BLD_DIR):
+	tar -xvzpf $(QJAC_PKG_ARC) -C $(BLD_DIR)
+	tar -xvJpf $(QJAC_PKG_DEB) -C $(QJAC_BLD_DIR)
+
+$(QJAC_PKG).deb: $(QJAC_BLD_DIR)
+	cd $(QJAC_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
+
+$(QJAC_PKG): $(QJAC_PKG).deb
 
 
-$(GIGE_PKG): $(GIGE_PKG).build
+## qsampler
+$(QSAM_BLD_DIR):
+	tar -xvzpf $(QSAM_PKG_ARC) -C $(BLD_DIR)
+	tar -xvJpf $(QSAM_PKG_DEB) -C $(QSAM_BLD_DIR)
+
+$(QSAM_PKG).deb: $(QSAM_BLD_DIR)
+	cd $(QSAM_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
+
+$(QSAM_PKG): $(QSAM_PKG).deb
 
 
-clean: 
+
+## Docker
+docker.build:
+	docker run -v $(TOP_DIR):/build ls-build make
+
+docker.image:
+	docker build $(DOCKER_PLATFORM) -t ls-build .
+
+docker.exec:
+	docker run $(DOKER_PLATFORM) -it -v $(TOP_DIR):/build ls-build bash
+
+
+dist-clean: 
 	rm -rf $(BLD_DIR)/*
-
-
-prepare:
-	apt install build-essential libsndfile-dev libgtk2.0-dev libgtkmm-2.4-dev
-
-
-arch:
-	@echo $(ARCH)
-
-debs: $(GIG_PKG).deb $(LSB_PKG).deb
-	mv $(BLD_DIR)/*.deb $(DEB_DIR)
-	mv $(BLD_DIR)/*.changes $(DEB_DIR)
-	mv $(BLD_DIR)/*.buildinfo $(DEB_DIR)
-
-docker-debs:
-	docker run -v $(TOP_DIR):/build ls-build make debs
-
-docker-build:
-	docker build -t ls-build .
