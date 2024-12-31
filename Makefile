@@ -48,6 +48,12 @@ QSAM_PKG_ARC := $(PKG_DIR)/$(QSAM_PKG)-$(QSAM_PKG_VER).tar.gz
 QSAM_BLD_DIR := $(BLD_DIR)/$(QSAM_PKG)-$(QSAM_PKG_VER)
 QSAM_PKG_DEB := $(PKG_DIR)/$(QSAM_PKG)_$(QSAM_PKG_VER)-1.debian.tar.xz
 
+RACK_PKG := jack-rack
+RACK_PKG_VER := git
+RACK_PKG_ARC := $(PKG_DIR)/$(RACK_PKG)-$(RACK_PKG_VER).tar.gz
+RACK_BLD_DIR := $(BLD_DIR)/$(RACK_PKG)-$(RACK_PKG_VER)
+
+
 
 all: $(GIG_PKG) $(LSB_PKG) $(QJAC_PKG) $(QSAM_PKG)
 	mv $(BLD_DIR)/*.deb $(DEB_DIR)
@@ -125,6 +131,16 @@ $(QSAM_PKG).deb: $(QSAM_BLD_DIR)
 	cd $(QSAM_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
 
 $(QSAM_PKG): $(QSAM_PKG).deb
+
+## qsampler
+$(RACK_BLD_DIR):
+	tar -xvzpf $(RACK_PKG_ARC) -C $(BLD_DIR)
+
+$(RACK_PKG).deb: $(RACK_BLD_DIR)
+	cd $(RACK_BLD_DIR) && dpkg-buildpackage -rfakeroot -b --no-sign -nc
+
+$(RACK_PKG): $(RACK_PKG).deb
+
 
 
 
