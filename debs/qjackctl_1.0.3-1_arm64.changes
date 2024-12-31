@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sun, 10 Nov 2024 18:40:59 +0100
+Source: qjackctl
+Binary: qjackctl qjackctl-dbgsym
+Architecture: arm64
+Version: 1.0.3-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Changed-By: Dennis Braun <snd@debian.org>
+Description:
+ qjackctl   - User interface for controlling the JACK sound server
+Changes:
+ qjackctl (1.0.3-1) unstable; urgency=medium
+ .
+   * New upstream version 1.0.3
+Checksums-Sha1:
+ db54e3d62727973984179d9e21f54e60f825450f 7597196 qjackctl-dbgsym_1.0.3-1_arm64.deb
+ a928ecfc8eab760776f461607df6ffb896793cf1 10806 qjackctl_1.0.3-1_arm64.buildinfo
+ 892ed908dd40b4152e4d87d7270491a58ca36430 731136 qjackctl_1.0.3-1_arm64.deb
+Checksums-Sha256:
+ 2cc813b77b7aa6260dfe4341ee51f971d56a42860ec87ac15944792f7cc90fad 7597196 qjackctl-dbgsym_1.0.3-1_arm64.deb
+ 5482a62d76f834a7d3c85745c9dba2378ad42bbc8732690249a2a258733848a0 10806 qjackctl_1.0.3-1_arm64.buildinfo
+ f48ce28bb47b425f3f395fa8f580ccc2a6ad514cd83ddfde30e73382c20dc987 731136 qjackctl_1.0.3-1_arm64.deb
+Files:
+ cc1bf291033250381d87a41d75479dcc 7597196 debug optional qjackctl-dbgsym_1.0.3-1_arm64.deb
+ 4b115d9fa0a947ba5861d09f28ae94a9 10806 sound optional qjackctl_1.0.3-1_arm64.buildinfo
+ 0325983eaa0f67fe39c37e6c77beee78 731136 sound optional qjackctl_1.0.3-1_arm64.deb

@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Sun, 21 Jul 2024 09:30:48 +0200
+Source: qsampler
+Binary: qsampler qsampler-dbgsym
+Architecture: arm64
+Version: 1.0.0-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Changed-By: Dennis Braun <snd@debian.org>
+Description:
+ qsampler   - LinuxSampler GUI frontend based on the Qt toolkit
+Changes:
+ qsampler (1.0.0-1) unstable; urgency=medium
+ .
+   * New upstream version 1.0.0
+   * Bump Standards-Version to 4.7.0
+Checksums-Sha1:
+ dae78cc374aed79b02acaaf6de59824abedb66c3 5005272 qsampler-dbgsym_1.0.0-1_arm64.deb
+ bbe0b257c7cbd41b1aab498950ebcf12249ac909 10656 qsampler_1.0.0-1_arm64.buildinfo
+ f7f8064a5586a96b91b95e9fcab054db8140d42a 280368 qsampler_1.0.0-1_arm64.deb
+Checksums-Sha256:
+ 31bacf59af29c61919db108ad23b3fff4428db7fd6a7068b01674f28b9816ed0 5005272 qsampler-dbgsym_1.0.0-1_arm64.deb
+ abc7cca7fe83237cef62b58df50140a3306477c4e052d905b5ddbc6513b9b5a7 10656 qsampler_1.0.0-1_arm64.buildinfo
+ 9764a1acfff7fb3ed2e21ac1b14e029b8e3487c1b835f6c0ca318f4c209ea515 280368 qsampler_1.0.0-1_arm64.deb
+Files:
+ 42e1f7490902db7fbad1d53b1c734cce 5005272 debug optional qsampler-dbgsym_1.0.0-1_arm64.deb
+ 4bd30eadf509b22ec7213c3c58d15d67 10656 sound optional qsampler_1.0.0-1_arm64.buildinfo
+ 60d8883d8a8734e972e38f751fed0f08 280368 sound optional qsampler_1.0.0-1_arm64.deb

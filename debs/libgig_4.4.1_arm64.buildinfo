@@ -5,19 +5,19 @@ Architecture: arm64
 Version: 4.4.1
 Checksums-Md5:
  a1d6780522231a91dc94835789da2c37 1637088 gigtools_4.4.1_arm64.deb
- 2ccc6798f3d6ce0033efaedf66c184e6 3384752 libgig-dev_4.4.1_arm64.deb
+ 09bf1db790e7d430c43f1bd1a5ad4299 3379932 libgig-dev_4.4.1_arm64.deb
  ed9b3734e2cab62b3eb3ea6325810608 2177600 libgig11_4.4.1_arm64.deb
 Checksums-Sha1:
  17196f8a574b44412af7248da6fe0c0fb94d49bc 1637088 gigtools_4.4.1_arm64.deb
- 424087a66b012fde894ee9a66406e74ebbcad3f7 3384752 libgig-dev_4.4.1_arm64.deb
+ cf80df8241b04acf0daf9d7b25d524b25f7bdbad 3379932 libgig-dev_4.4.1_arm64.deb
  a928993e4cca41c4a8e0956be914c971b716db39 2177600 libgig11_4.4.1_arm64.deb
 Checksums-Sha256:
  9c51f435a7a14c835bea090030f5464b0b24b4c8594c6539f093a8a3395ec1fd 1637088 gigtools_4.4.1_arm64.deb
- ed904e1a412cd6a16e8aad15b66eee04b7fdedc226b9eaff42258dfdcf83ec8e 3384752 libgig-dev_4.4.1_arm64.deb
+ 764f3f38700bbcee28846b1e8e1914f7e620670bb60ee1c2a34332fb7edc39e9 3379932 libgig-dev_4.4.1_arm64.deb
  8daa060b18aed9e918b0299dc460509936aaf2a56bf7f793838d45a03549fd82 2177600 libgig11_4.4.1_arm64.deb
 Build-Origin: Debian
 Build-Architecture: arm64
-Build-Date: Thu, 26 Dec 2024 03:55:39 +0000
+Build-Date: Sat, 28 Dec 2024 14:24:57 +0000
 Build-Path: /build/build/libgig-4.4.1
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
